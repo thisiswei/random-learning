@@ -26,7 +26,7 @@ class LinkedList(object):
         return str(self.head)
 
     def delete(self, idx):
-        prev = self._find_pre_idx_elem(idx)
+        prev = self._find_pre(idx)
         cur = prev.next_
         if prev is None:
             del cur
@@ -55,43 +55,34 @@ class LinkedList(object):
                 cur = succ
 
     def sorted_insert(self, val):
-        self.sort()
-        pre, cur = None, self.head
-        if self.head is None:
-            self.insert(0, val)
-            return
+        cur = self.head
         node = Node(val)
+        pre = None
         while cur:
-            if val <= cur.val:
-                node.next_ = cur
-                if pre is not None:
-                    pre.next_ = node
-                else:
+            if cur.val >= val:
+                if pre is None:
                     self.head = node
+                else:
+                    pre.next_ = node
+                node.next_ = cur
                 return
             pre, cur = cur, cur.next_
-        if val > pre.val:
-            self.tail.next_ = node
-            self.tail = node
+        if self.head is None:
+            self.head = node
+            return
+        self.tail.next_, self.tail = node, node
 
     def insert(self, idx, val):
         node = Node(val)
-        if self.head is None and self.tail is None:
-            self.head = self.tail = node
-            return
-        pre = self._find_pre_idx_elem(idx)
-        if _is_head(pre):
+        pre = self._find_pre(idx)
+        if pre is None:
             self.head, node.next_ = node, self.head
-            return
-        cur = pre.next_
-        if _is_tail(cur):
-            self.tail.next_, self.tail = node, node
-            return
-        pre.next_ = node
-        node.next_ = cur
-        return
+        else:
+            pre.next_, node.next_ = node, pre.next_
+            if node.next_ is None:
+                self.tail = node
 
-    def _find_pre_idx_elem(self, idx):
+    def _find_pre(self, idx):
         def helper(pre, cnt):
             if cnt == idx:
                 return pre
@@ -102,7 +93,7 @@ class LinkedList(object):
                 else:
                     raise ValueError('invalid index')
             return helper(cur, cnt+1)
-        return helper(None, 0)
+        return None if self.head is None else helper(None, 0)
 
     def reverse_recursive(self):
         def helper(head):
@@ -128,6 +119,15 @@ def test():
     lis.insert(3, 12)
     print 'inserted(3, 12)'
     print lis
+
+    lis.insert(0, 100)
+    lis.insert(6, 9)
+    lis.insert(8, 88)
+    lis.sort()
+    lis.sorted_insert(0)
+    lis.sorted_insert(111)
+    print lis
+
 
 if __name__ == '__main__':
     exit(test())
