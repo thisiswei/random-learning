@@ -23,11 +23,17 @@ def reverse_string(s):
         return s
     return reverse_string(s[1:]) + s[0:1]
 
+def reverse_string2(s):
+    L = len(s)
+    if L == 1 or L == 0:
+        return s
+    return s[-1] + reverse_string2(s[1:-1]) + s[0]
+
 def test():
     assert digit_sum(1729) == 19
     assert digit_root(1729) == 3
     assert C(6, 2) == 15
-    assert reverse_string('string') == 'gnirts'
+    assert reverse_string('blahblahhhh') == reverse_string2('blahblahhhh') == ''.join(reversed('blahblahhhh'))
     print 'pass'
 
 if __name__ == '__main__':
