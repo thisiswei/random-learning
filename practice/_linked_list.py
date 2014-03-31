@@ -22,6 +22,9 @@ class LinkedList(object):
         if args:
             map(lambda val: self.append(val), args)
 
+    def __repr__(self):
+        return str(self.head)
+
     def delete(self, idx):
         prev = self._find_pre_idx_elem(idx)
         cur = prev.next_
@@ -114,18 +117,6 @@ class LinkedList(object):
         head = self.head
         helper(head)
         self.head, self.tail = self.tail, self.head
-
-    def __repr__(self):
-        return str(self.head)
-
-    def mklist(self, *args):
-        to_return = []
-        cur = self.head
-        while cur:
-            to_return.append(cur.val)
-            cur = cur.next_
-        return to_return
-
 
 def test():
     lis = LinkedList(3, 2, 4, 9, 10)
