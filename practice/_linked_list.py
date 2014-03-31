@@ -32,7 +32,6 @@ class LinkedList(object):
             del cur
             return
         prev.next_ = cur.next_
-        del cur
 
     def append(self, val):
         node = Node(val)
