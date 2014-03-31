@@ -4,7 +4,10 @@ class Node(object):
         self.next_ = None
 
     def __repr__(self):
-        return str(self.val)
+        val = str(self.val)
+        if self.next_ is None:
+            return val
+        return val + ',' + str(self.next_)
 
 def _is_head(pre):
     return pre is None
@@ -13,9 +16,11 @@ def _is_tail(cur):
     return cur is None
 
 class LinkedList(object):
-    def __init__(self):
+    def __init__(self, *args):
         self.head = None
         self.tail = None
+        if args:
+            map(lambda val: self.append(val), args)
 
     def delete(self, idx):
         prev = self._find_pre_idx_elem(idx)
@@ -111,9 +116,9 @@ class LinkedList(object):
         self.head, self.tail = self.tail, self.head
 
     def __repr__(self):
-        return '[' + ','.join(map(str, self._get_list())) + ']'
+        return str(self.head)
 
-    def _get_list(self):
+    def mklist(self, *args):
         to_return = []
         cur = self.head
         while cur:
@@ -121,44 +126,18 @@ class LinkedList(object):
             cur = cur.next_
         return to_return
 
+
 def test():
-    lis = LinkedList()
-    lis.append(3)
-    lis.append(2)
-    lis.append(4)
-    lis.append(9)
-    lis.append(10)
+    lis = LinkedList(3, 2, 4, 9, 10)
+    print lis
 
-    assert lis._get_list() == [3, 2, 4, 9, 10]
     lis.reverse_recursive()
-    assert lis._get_list() == [10, 9, 4, 2, 3]
-    lis.insert(3, 12)
-    assert lis._get_list() == [10, 9, 4, 12, 2, 3]
-    lis.insert(0, 100)
-    assert lis._get_list() == [100, 10, 9, 4, 12, 2, 3]
-    lis.insert(6, -1)
-    assert lis._get_list() == [100, 10, 9, 4, 12, 2, -1, 3]
-    lis.delete(2)
-    assert lis._get_list() == [100, 10, 4, 12, 2, -1, 3]
-    lis = LinkedList()
-    lis.insert(0, 100)
-    assert lis._get_list() == [100]
-    lis.insert(1, 200)
-    assert lis._get_list() == [100, 200]
+    print 'lis reversed'
+    print lis
 
-    lis = LinkedList()
-    lis.sorted_insert(8)
-    lis.insert(1, 2)
-    lis.append(1)
-    lis.append(5)
-    lis.append(0)
-    lis.sort()
-    lis.sorted_insert(4)
-    assert lis._get_list() == [0, 1, 2, 4, 5, 8]
-    lis.sorted_insert(10)
-    assert lis._get_list() == [0, 1, 2, 4, 5, 8, 10]
-    lis.sorted_insert(-1)
-    assert lis._get_list() == [-1, 0, 1, 2, 4, 5, 8, 10]
+    lis.insert(3, 12)
+    print 'inserted(3, 12)'
+    print lis
 
 if __name__ == '__main__':
     exit(test())
