@@ -66,10 +66,18 @@ def remove(s, c):
     copied = s.replace(c, '')
     return copied
 
+#9
+def generate_binary_code(nbits):
+    if nbits == 0:
+        return [[]]
+    return [[d] + p for p in generate_binary_code(nbits-1) for d in [0, 1]]
+
 def test():
     assert mnemonics('723') == ['PAD', 'QAD', 'RAD', 'SAD', 'PBD', 'QBD', 'RBD', 'SBD', 'PCD', 'QCD', 'RCD', 'SCD', 'PAE', 'QAE', 'RAE', 'SAE', 'PBE', 'QBE', 'RBE', 'SBE', 'PCE', 'QCE', 'RCE', 'SCE', 'PAF', 'QAF', 'RAF', 'SAF', 'PBF', 'QBF', 'RBF', 'SBF', 'PCF', 'QCF', 'RCF', 'SCF']
     assert len(mnemonics('723')) == 36
     assert subsets('ABC') == set(['ABC', 'AB', 'AC', 'A', 'BC', 'B', 'C', ''])
+    print generate_binary_code(3)
+    assert set(generate_binary_code(3)) == set([[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0], [0, 0, 1], [1, 0, 1], [0, 1, 1], [1, 1, 1]])
 
 if __name__ == '__main__':
     exit(test())
