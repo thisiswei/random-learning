@@ -65,12 +65,15 @@ def subsets(s):
 def remove(s, c):
     copied = s.replace(c, '')
     return copied
-
 #9
 def generate_binary_code(nbits):
     if nbits == 0:
         return [[]]
     return [[d] + p for p in generate_binary_code(nbits-1) for d in [0, 1]]
+#10
+def gray_code():
+    pass
+
 
 def test():
     assert mnemonics('723') == ['PAD', 'QAD', 'RAD', 'SAD', 'PBD', 'QBD', 'RBD', 'SBD', 'PCD', 'QCD', 'RCD', 'SCD', 'PAE', 'QAE', 'RAE', 'SAE', 'PBE', 'QBE', 'RBE', 'SBE', 'PCE', 'QCE', 'RCE', 'SCE', 'PAF', 'QAF', 'RAF', 'SAF', 'PBF', 'QBF', 'RBF', 'SBF', 'PCF', 'QCF', 'RCF', 'SCF']
