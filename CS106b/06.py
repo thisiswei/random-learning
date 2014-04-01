@@ -58,7 +58,7 @@ def mnemonics(string):
 
 def subsets(s):
     if s == "":
-       return [""]
+       return set([""])
     subs = [remove(s, c) for c in s]
     return set([s]) | set(p for sub in subs for p in subsets(sub))
 
