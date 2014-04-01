@@ -2,7 +2,6 @@
 http://cs.stanford.edu/people/eroberts/courses/cs106b/chapters/06-recursive-procedures.pdf
 """
 
-
 #Hanoi move tower
 def move(size, start='L', using='M', end='R'):
     if len(size) == 1:
@@ -57,12 +56,20 @@ def mnemonics(string):
         return [h+g for g in helper(rest) for h in head]
     return helper(group_letters)
 
+def subsets(s):
+    if s == "":
+       return [""]
+    subs = [remove(s, c) for c in s]
+    return set([s]) | set(p for sub in subs for p in subsets(sub))
+
+def remove(s, c):
+    copied = s.replace(c, '')
+    return copied
 
 def test():
     assert mnemonics('723') == ['PAD', 'QAD', 'RAD', 'SAD', 'PBD', 'QBD', 'RBD', 'SBD', 'PCD', 'QCD', 'RCD', 'SCD', 'PAE', 'QAE', 'RAE', 'SAE', 'PBE', 'QBE', 'RBE', 'SBE', 'PCE', 'QCE', 'RCE', 'SCE', 'PAF', 'QAF', 'RAF', 'SAF', 'PBF', 'QBF', 'RBF', 'SBF', 'PCF', 'QCF', 'RCF', 'SCF']
     assert len(mnemonics('723')) == 36
-
+    assert subsets('ABC') == set(['ABC', 'AB', 'AC', 'A', 'BC', 'B', 'C', ''])
 
 if __name__ == '__main__':
     exit(test())
-
