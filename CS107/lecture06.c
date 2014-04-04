@@ -1,4 +1,4 @@
-
+#inlude <stdio.h>
 // another way
 typedef struct {
   void *elems;
@@ -42,7 +42,7 @@ void StackPush(stack *s, void *elemaddr) {
 }
 
 void StackPop(stack *s, void *elemaddr) {
-  void *source = (char *)s->elems + (s->alloclength - 1) * s->elemsize;
+  void *source = (char *)s->elems + (s->logicallength - 1) * s->elemsize;
   memcpy(elemaddr, source, s->elemsize);
   s->logicallength --;
 }
