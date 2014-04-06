@@ -74,6 +74,15 @@ int main(-,-) {
   StackDispose(&stringstack);
 }
 
+void rotate(void * front, void * middle, void * end) {
+  int frontsize = (char *)middle - (char *)front;
+  int backsize = (char *)end - (char *)middle;
+  char buffer[frontsize];
+  memcpy(buffer, front, frontsize);
+  memmove(front, middle, frontsize);
+  memcpy((char *)end-frontsize, buffer, frontsize);
+}
+
 
 
 
