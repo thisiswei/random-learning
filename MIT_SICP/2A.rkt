@@ -1,4 +1,4 @@
-(define (SUM term a next b)
+(define (sum term a next b)
   (if (> a b)
     0
     (+ (term a)
