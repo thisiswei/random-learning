@@ -17,11 +17,11 @@
             (* (denom x) (denom y))))
 
 
-
 (define (make-seg p q) (cons p q))
 (define (seg-start s) (cons s))
 (define (seg-end s) (cdr s))
 
+(define (make-vector x y) (cons x y))
 (define (xcor x) (car x))
 (define (ycor x) (cdr x))
 
@@ -40,4 +40,10 @@
     (sqrt (+ (square dx)
              (square dy)))))
 
+(define (cons a b)
+  (lambda (pick)
+    (cond [(= pick 1) a]
+          [(= pick 2) b])))
 
+(define (car x) (x 1))
+(define (cdr x) (x 2))
