@@ -1,0 +1,1 @@
+; iterative pascal's triangle
