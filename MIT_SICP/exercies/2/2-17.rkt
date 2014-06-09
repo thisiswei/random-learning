@@ -86,6 +86,7 @@
         [(pair? br) (append (car br) (branch-structure (cdr br)))]
         [#t (list br)]))
 
+; june 06/ 2014
 ;scale-tree implement
 (define (scale-tree t factor)
   (cond [(null? t) null]
@@ -100,4 +101,123 @@
        t))
 
 ;2.30
-(define (square-tree t))
+(define (square-list t)
+  (map (lambda (s-t)
+         (if (pair? s-t) (square-list s-t)
+           (* s-t s-t)))
+       t))
+
+(define (square-list-i t)
+  (cond [(null? t) null]
+        [(not (pair? t)) (* t t)]
+        [#t (cons (square-list-i (car t)) (square-list-i (cdr t)))]))
+
+;2.31
+(define (square x) (* x x))
+(define (square-tree-another t) (tree-map square t))
+
+(define (tree-map f t)
+  (map (lambda (s-t)
+         (if (pair? s-t) (tree-map f s-t)
+           (f s-t)))
+       t))
+
+;2.32
+;[1, 2, 3] -> [[], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]]
+
+(define (subsets s)
+ (if (null? s) (list null)
+   (let ([rest (subsets (cdr s))])
+     (append rest (map (lambda (x) (cons (car s) x)) rest)))))
+
+(define (accumulate op initial seq)
+  (if (null? seq)
+    initial
+    (op (car seq)
+        (accumulate op initial (cdr seq)))))
+
+;2.33
+(define (map p seq)
+  (accumulate (lambda (x y) (cons x y)) null seq))
+
+(define (append sq1 sq2)
+  (accumulate cons sq2 sq1))
+
+(define (length seq)
+  (accumulate (lambda (x y) (+ 1 y)) 0 seq))
+
+;2.34
+(define (horner-eval x coeff-seq)
+  (accumulate (lambda (coe hterm) (+ coe (* x hterm))) 0 coeff-seq))
+
+;2.35
+(define (count-leaves-acc t)
+  (accumulate + 0 (map (lambda (x) (if (not (pair? x)) 1 (count-leaves-acc x))) t)))
+
+;2.36
+(define (accumulate-n op init seqs)
+  (if (null? (car seqs))
+    null
+    (cons (accumulate op init (map car seqs))
+          (accumulate-n op init (map cdr seqs)))))
+
+;2.37
+(define (transpose mat)
+  (accumulate-n cons null mat))
+
+(define (matrix-*-vector m v)
+  (map <??> m))
+
+(define (matrix-*-matrix m n)
+  (let ([cols (transpose n)])
+    (map <??> m)))
+
+;2.38
+; + should do it
+(define (fold-left op init seq)
+  (define (iter a aux)
+    (if (null? a) aux
+      (iter (cdr a) (op aux (car a)))))
+  (iter seq init))
+
+(define (accumulate op initial seq)
+  (if (null? seq)
+    initial
+    (op (car seq)
+        (accumulate op initial (cdr seq)))))
+
+(define fold-right accumulate)
+;2.39
+(define (reverse-foldr seq)
+  (fold-right (lambda (x y) (append y (list x))) null seq))
+
+(define (reverse-foldl seq)
+  (fold-left (lambda (x y) (cons y x)) null seq))
+
+; nested mapping
+(define (flatmap proc seq) (accumulate append null (map proc seq)))
+
+(define (permutations s)
+  (if (null? s) (list null)
+    (flatmap (lambda (x) (map (lambda (p) (cons x p)) (permutations (remove x s))))
+               s)))
+(define (remove item s)
+  (filter (lambda (x) (not (= item x))) s))
+
+;2.40
+(define (enumerate-interval low high)
+  (if (> low high) null (cons low (enumerate-interval (+ 1 low) high))))
+
+(define (unique-pairs n)
+  (flatmap (lambda (i) (map (lambda (j) (list i j)) (enumerate-interval 1 (- i 1))) (enumerate-interval 1 n)))
+
+;2.41
+(define (mk-triples n)
+  (flatmap (lambda (i)
+             (flatmap (lambda (j)
+                        (map (lambda (k) (list i j k))
+                             (enumerate-interval 1 (- j 1))))
+                      (enumerate-interval 1 (- i 1))))
+           (enumerate-interval 1 n)))
+
+;2.42
