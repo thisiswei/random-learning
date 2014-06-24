@@ -198,17 +198,150 @@ def recursive_reverse(node):
     node._next = None
     return rest
 
+# --- Following are linkedlist problems from cracking the interview 5th page 190
+
+def unsorted_redup(node):
+    """
+    remove duplicates items from unsorted linkedlist
+    {3, 2, 2, 3, 1, 3, 4, 9}
+    hashtable?
+    loop through
+    """
+    appeared = {}
+    pre = None
+    root = node
+    while node:
+        if node.val not in appeared:
+            appeared[node.val] = True
+        else:
+            pre._next = node._next
+            node = node._next
+        pre = node
+        node = node._next
+    return root
+
+def unsorted_redup_no_buffer(node):
+    """
+    pointer 1: current node
+    pointer 2: iterate throught all the nodes
+    """
+    root = cur = other = node
+    while cur:
+        other = cur
+        while other:
+            if other.val == other._next.val:
+                other._next = other._next._next
+            other = other._next
+        cur = cur._next
+    return root
+
+# ---- haven't check the solutions yet
+def kth(node, i):
+    """
+    find the kth to the last elems of the list
+    """
+    idx = 0
+    while node:
+        node = node._next
+        idx += 1
+        if i == idx:
+            return node
+
+def delete_middle(node):
+    """
+    Delete a node in the middle of the linkedlist
+    must assume the length in odd
+    """
+    length = _get_length(node)
+    idx = length / 2
+    i = 0
+    root = node
+    while node._next:
+        if i == idx:
+            node._next = node._next._next
+            break
+        node = node._next
+        i += 1
+    print root
+
+def partition(node, val):
+    front = back = None
+    root = node
+    while node:
+        cur = node
+        if cur.val < val:
+            if front is None:
+                front = Node(val)
+            else:
+                front._next = cur
+        else:
+            if back is None:
+                back = Node(val)
+            else:
+                cur._next = back
+                back = cur
+        node = node._next
+    return root
+
+#2.5
+#a)
+def sum_of_reverse(n1, n2):
+    r1 = _reversed(n1)
+    r2 = _reversed(n2)
+    return sum([reduce(lambda x, y: x*10 + y, r) for r in [r1, r2]])
+
+def _reversed(node):
+    if node is None:
+        return None
+    if node._next is None:
+        return [node.val]
+    rest = _reversed(node._next)
+    return rest + [node.val]
+
+#2.5
+#b)
+def sum_of_reverse2(n1, n2):
+    return _get_sum(n1, 0) + _get_sum(n2, 0)
+
+def _get_sum(node, acc):
+    if node._next is None:
+        return acc + node.val
+    return _get_sum(node._next, (acc + node.val)*10)
+
+#2.6
+def circular_head(node):
+    """
+    return the head of the circular linkedlist
+    A -> B -> C -> D -> E -> C  => C
+    """
+    pass
+
+#2.7
+def ispal(node):
+    """
+    chck if a linked list is a palindrome
+    """
+    return reverse(node) == node
 
 def test():
     node = Node(2)
     sorted_insert(node, 3)
+    sorted_insert(node, 3)
     sorted_insert(node, 5)
     sorted_insert(node, 7)
-    sorted_insert(node, 11)
+    sorted_insert(node, 7)
+    sorted_insert(node, 8)
+
+    print node
+    dep = unsorted_redup(node)
+    print dep
 
     reversed_node = reverse(node)
     print reversed_node
 
+    n1 = n2 = reversed_node
+    assert sum_of_reverse(n1, n2) == 23578 * 2
+    assert sum_of_reverse2(n1, n2) == 87532 * 2
     recursive_reverse(reversed_node)
 
     front_back_split(node)
