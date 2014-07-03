@@ -88,5 +88,5 @@ def _get_company_name_and_path(json_):
         return path.split('/')[1]
 
     items = get_dotted(json_, 'data.items')
-    names = [(item.get('name'), _get_permlink(item.get('path'))) for item in items]
-    return names
+    names_and_paths = [(item.get('name'), _get_permlink(item.get('path'))) for item in items]
+    return names_and_paths
