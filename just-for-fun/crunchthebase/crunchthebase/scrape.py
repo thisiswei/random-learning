@@ -9,8 +9,8 @@ BASE_URL = "http://api.crunchbase.com/v/2/{item}?order=updated_at%20desc&user_ke
 MAX = 100
 SLEEP = 60
 
-@retry(sleep_interval=60)
-def get_companies(max_=2):
+@retry(num_retries=3, sleep_interval=60)
+def _get_companies(max_=2):
     to_return = []
     url = BASE_URL.format(item="organizations")
     for i in range(1, max_):
