@@ -22,7 +22,6 @@ def get_companies():
             company = _get_company(permlink)
             to_return.append(company)
         CURRENT_IDX += 1
-        to_return.append()
     return to_return
 
 def _create_company_dict(name=None, city=None, total_founding=None,
