@@ -1,0 +1,170 @@
+{
+ "metadata": {
+  "version": 2,
+  "www_path_prefix": "http://www.crunchbase.com/",
+  "api_path_prefix": "http://api.crunchbase.com/v/2/",
+  "image_path_prefix": "http://images.crunchbase.com/"
+ },
+ "data": {
+  "uuid": "6ce23bd8c5252dfbd75454b8842e70b0",
+  "type": "Person",
+  "properties": {
+   "last_name": "Lo",
+   "first_name": "Bobby",
+   "permalink": "bobby-lo",
+   "bio": "A MIT grad with three degrees in EECS and Management, Bobby started his first company at 15, co-founded local ads startup Yodle, and also worked at Boston Consulting Group. \r\n\r\nHe's also a foodie and travel junkie who enjoys arbitraging frequent flyer miles.",
+   "created_at": 1398979196,
+   "updated_at": 1398979196
+  },
+  "relationships": {
+   "degrees": {
+    "paging": {
+     "total_items": 2,
+     "first_page_url": "http://api.crunchbase.com/v/2/person/bobby-lo/degrees",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "started_on": null,
+      "completed_on": null,
+      "degree_type_name": null,
+      "degree_subject": "Computer Science",
+      "type": "Degree",
+      "organization_name": "Massachusetts Institute of Technology",
+      "organization_path": "organization/massachusetts-institute-of-technology-2"
+     },
+     {
+      "started_on": null,
+      "completed_on": null,
+      "degree_type_name": null,
+      "degree_subject": "Electrical Engineering & Computer Science",
+      "type": "Degree",
+      "organization_name": "Massachusetts Institute of Technology",
+      "organization_path": "organization/massachusetts-institute-of-technology-2"
+     }
+    ]
+   },
+   "experience": {
+    "paging": {
+     "total_items": 3,
+     "first_page_url": "http://api.crunchbase.com/v/2/person/bobby-lo/experience",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "organization_name": "Boston Consulting Group",
+      "organization_path": "organization/boston-consulting-group",
+      "title": "Management Consultant",
+      "started_on": null,
+      "ended_on": null
+     },
+     {
+      "organization_name": "Yodle",
+      "organization_path": "organization/yodle",
+      "title": "Co - Founder",
+      "started_on": null,
+      "ended_on": null
+     },
+     {
+      "organization_name": "Vurb",
+      "organization_path": "organization/vurb",
+      "title": "Founder",
+      "started_on": null,
+      "ended_on": null
+     }
+    ]
+   },
+   "primary_affiliation": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/person/bobby-lo/primary_affiliation",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "organization_name": "Vurb",
+      "title": "Founder",
+      "started_on": null,
+      "ended_on": null
+     }
+    ]
+   },
+   "founded_companies": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/person/bobby-lo/founded_companies",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "type": "Organization",
+      "name": "Vurb",
+      "path": "organization/vurb",
+      "created_at": 1361410123,
+      "updated_at": 1399519090
+     }
+    ]
+   },
+   "primary_image": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/person/bobby-lo/primary_image",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "type": "ImageAsset",
+      "title": null,
+      "path": "image/upload/v1398979188/ddumxckbofm1vr4jw2ek.png",
+      "created_at": 1398019241,
+      "updated_at": 1398019241
+     }
+    ]
+   },
+   "websites": {
+    "paging": {
+     "total_items": 5,
+     "first_page_url": "http://api.crunchbase.com/v/2/person/bobby-lo/websites",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "url": "http://twitter.com/blo",
+      "type": "WebPresence",
+      "title": "twitter",
+      "created_at": 1397877760,
+      "updated_at": 2014
+     },
+     {
+      "url": "http://quora.com/bobby-lo-1",
+      "type": "WebPresence",
+      "title": "quora",
+      "created_at": 1397877760,
+      "updated_at": 2014
+     },
+     {
+      "url": "http://linkedin.com/in/bobbylo",
+      "type": "WebPresence",
+      "title": "linkedin",
+      "created_at": 1397877760,
+      "updated_at": 2014
+     },
+     {
+      "url": "http://angel.co/blo",
+      "type": "WebPresence",
+      "title": "angellist",
+      "created_at": 1397877760,
+      "updated_at": 2014
+     },
+     {
+      "url": "http://www.twitter.com/blo",
+      "type": "WebPresence",
+      "title": "twitter",
+      "created_at": 1361381752,
+      "updated_at": 1397989455
+     }
+    ]
+   }
+  }
+ }
+}

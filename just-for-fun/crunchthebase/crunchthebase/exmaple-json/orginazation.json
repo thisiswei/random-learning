@@ -1,0 +1,207 @@
+ {
+ "metadata": {
+  "version": 2,
+  "www_path_prefix": "http://www.crunchbase.com/",
+  "api_path_prefix": "http://api.crunchbase.com/v/2/",
+  "image_path_prefix": "http://images.crunchbase.com/"
+ },
+ "data": {
+  "uuid": "fc2d80cd82657e4b85763cabda778ee7",
+  "type": "Organization",
+  "properties": {
+   "role_company": true,
+   "description": "The ways we find, interact, and consume websites and services have remained largely unchanged over the years. Browsers render faster; mobile devices have more apps, and yet we still adhere to a model where every website or service has its own unique way of organizing information. At the same time, the number of online services available and the number of services we use has steadily increased.\r\n\r\nWe rely on our knowledge of each of these services as well as general search engines to index the entire web. However, for the most part, we're still accessing these services one at a time, with windows and tabs to help us stay sane.\r\n\r\nAt Vurb, we're proposing something new. Let's challenge all the assumptions out there and reimagine how we fundamentally use the web. What if we could be smart about how you arrive at different services, contextually understand your actions, and then connect you with the most relevant information? Once we do that, what if we could also help you better organize and share that information in a coherent way?\r\n\r\nOur goal with Vurb is to be your smarter interface to the Internet. Let's change things up. Question everything.",
+   "short_description": "Vurb is an interface enabling users to interact across online services by using search, machine learning and UX/UI technologies.",
+   "founded_on_day": 1,
+   "founded_on_month": 1,
+   "founded_on_year": 2012,
+   "founded_on": "2012-01-01",
+   "founded_on_trust_code": 4,
+   "permalink": "vurb",
+   "primary_role": "company",
+   "is_closed": false,
+   "closed_on_trust_code": 0,
+   "homepage_url": "http://vurb.com",
+   "name": "Vurb",
+   "email_address": "hello@vurb.com",
+   "closed_on_day": null,
+   "closed_on_month": null,
+   "closed_on_year": null,
+   "closed_on": null,
+   "created_at": 1399519090,
+   "updated_at": 1399519090,
+   "total_funding_usd": 1500000,
+   "number_of_investments": 0
+  },
+  "relationships": {
+   "current_team": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/organization/vurb/current_team",
+     "sort_order": "custom"
+    },
+    "items": [
+     {
+      "first_name": "Bobby",
+      "last_name": "Lo",
+      "title": "Founder",
+      "started_on": null,
+      "path": "person/bobby-lo",
+      "created_at": 1361410552,
+      "updated_at": 1398979196
+     }
+    ]
+   },
+   "offices": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/organization/vurb/offices",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "name": null,
+      "street_1": null,
+      "street_2": null,
+      "city": "San Francisco",
+      "region": "CA",
+      "country_code": "USA",
+      "type": "Address",
+      "created_at": 1361381451,
+      "updated_at": 1397990907
+     }
+    ]
+   },
+   "headquarters": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/organization/vurb/headquarters",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "name": null,
+      "street_1": null,
+      "street_2": null,
+      "city": "San Francisco",
+      "region": "CA",
+      "country_code": "USA",
+      "type": "Address",
+      "created_at": 1361381451,
+      "updated_at": 1397990907
+     }
+    ]
+   },
+   "funding_rounds": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/organization/vurb/funding_rounds",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "type": "FundingRound",
+      "name": "Vurb raises 1500000 in seed round",
+      "path": "funding-round/b0008063f964e27ca0c4f490a3037e26",
+      "created_at": 1361416589,
+      "updated_at": 1398010047
+     }
+    ]
+   },
+   "categories": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/organization/vurb/categories",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "type": "Category",
+      "name": "Search",
+      "uuid": "0d39287e5b1377a6970274294daded43",
+      "created_at": 1397980727,
+      "updated_at": 1397980727
+     }
+    ]
+   },
+   "founders": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/organization/vurb/founders",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "type": "Person",
+      "name": "Bobby Lo",
+      "path": "person/bobby-lo",
+      "created_at": 1361410552,
+      "updated_at": 1398979196
+     }
+    ]
+   },
+   "primary_image": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/organization/vurb/primary_image",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "type": "ImageAsset",
+      "title": null,
+      "path": "image/upload/v1397199370/d81da26aa858f2430790ebc1e4692e62.png",
+      "created_at": 1398019034,
+      "updated_at": 1398019034
+     }
+    ]
+   },
+   "images": {
+    "paging": {
+     "total_items": 1,
+     "first_page_url": "http://api.crunchbase.com/v/2/organization/vurb/images",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "type": "ImageAsset",
+      "title": null,
+      "path": "image/upload/v1397199371/16ca09ec55f9fd11fcbca41695f32a9a.png",
+      "created_at": 1398019034,
+      "updated_at": 1398019034
+     }
+    ]
+   },
+   "websites": {
+    "paging": {
+     "total_items": 3,
+     "first_page_url": "http://api.crunchbase.com/v/2/organization/vurb/websites",
+     "sort_order": "created_at DESC"
+    },
+    "items": [
+     {
+      "url": "https://twitter.com/vurbapp",
+      "type": "WebPresence",
+      "title": "twitter",
+      "created_at": 1399503295,
+      "updated_at": 1399503295
+     },
+     {
+      "url": "https://www.facebook.com/VurbApp",
+      "type": "WebPresence",
+      "title": "facebook",
+      "created_at": 1399503295,
+      "updated_at": 1399503295
+     },
+     {
+      "url": "http://vurb.com",
+      "type": "WebPresence",
+      "title": "homepage",
+      "created_at": 1361381323,
+      "updated_at": 1397987411
+     }
+    ]
+   }
+  }
+ }
+}
